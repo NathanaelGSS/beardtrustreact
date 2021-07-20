@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [users, setUsers] = useState([]);
-  RegisterService();
+  var userID = RegisterService();
   const token = new LoginService();//want the token frpm the header
   const url = 'http://localhost:9001/users;' //current get all url, will need admin's token
   
@@ -39,8 +39,8 @@ fetch(request)
       fetch(url)
       .then(res => res.json()
       .then(data => setUsers(data))
-      .catch(err => console.log("error caught: " + err)))//Dusplay something on screen
-      .catch(er => console.log("Error caught: " + er))//see above
+      .catch(err => console.log("VIEW USER ERR 1: " + err)))//Dusplay something on screen
+      .catch(er => console.log("VIEW USER ERR 2: " + er))//see above
   }, [])
 
   return (
